@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Sessions" representedClassName="Sessions" syncable="YES" codeGenerationType="class">
+        <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="sessionDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="sessionEndTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="sessionGoal" optional="YES" attributeType="String"/>
+        <attribute name="sessionID" optional="YES" attributeType="String"/>
+        <attribute name="sessionLength" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="sessionStartTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <elements>
+        <element name="Sessions" positionX="-54" positionY="0" width="128" height="134"/>
+    </elements>
+</model>
