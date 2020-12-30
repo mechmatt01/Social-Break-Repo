@@ -15,18 +15,18 @@
 		34304117258C466E009A402A /* SessionGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34304116258C466E009A402A /* SessionGoalViewController.swift */; };
 		3430411F258C4E62009A402A /* CustomGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3430411E258C4E62009A402A /* CustomGoalViewController.swift */; };
 		34304124258C51A1009A402A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34304123258C51A1009A402A /* StringExtensions.swift */; };
+		344D2452259BEEAD00C18C43 /* LicensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344D2451259BEEAD00C18C43 /* LicensesViewController.swift */; };
 		34594C8E2587F51600FE007D /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34594C8D2587F51600FE007D /* StatsViewController.swift */; };
 		34594C932587F54E00FE007D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34594C922587F54E00FE007D /* SettingsViewController.swift */; };
 		34594C982587F56900FE007D /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34594C972587F56900FE007D /* AboutViewController.swift */; };
-		34594C9D2587F7EC00FE007D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34594C9C2587F7EC00FE007D /* MenuViewController.swift */; };
 		34594CA22587F7F800FE007D /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34594CA12587F7F800FE007D /* SessionViewController.swift */; };
 		34594CA72587F80400FE007D /* SessionLengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34594CA62587F80400FE007D /* SessionLengthViewController.swift */; };
 		3478990325856F9D00CDE277 /* IntroControllers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3478990225856F9D00CDE277 /* IntroControllers.storyboard */; };
 		3478990C2585703D00CDE277 /* UIFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478990B2585703D00CDE277 /* UIFonts.swift */; };
-		347899172585721300CDE277 /* Lobster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 347899132585721200CDE277 /* Lobster-Regular.ttf */; };
-		347899182585721300CDE277 /* SF-Pro-Rounded-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 347899142585721200CDE277 /* SF-Pro-Rounded-Bold.otf */; };
-		347899192585721300CDE277 /* SF-Pro-Rounded-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 347899152585721200CDE277 /* SF-Pro-Rounded-Medium.otf */; };
-		3478991A2585721300CDE277 /* SF-Pro-Rounded-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 347899162585721300CDE277 /* SF-Pro-Rounded-Ultralight.otf */; };
+		347899172585721300CDE277 /* Lobster_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 347899132585721200CDE277 /* Lobster_Regular.ttf */; };
+		347899182585721300CDE277 /* SF_Pro_Rounded_Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 347899142585721200CDE277 /* SF_Pro_Rounded_Bold.otf */; };
+		347899192585721300CDE277 /* SF_Pro_Rounded_Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 347899152585721200CDE277 /* SF_Pro_Rounded_Medium.otf */; };
+		3478991A2585721300CDE277 /* SF_Pro_Rounded_Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 347899162585721300CDE277 /* SF_Pro_Rounded_Ultralight.otf */; };
 		34AEFE3D2582D62F006A1082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AEFE3C2582D62F006A1082 /* AppDelegate.swift */; };
 		34AEFE412582D62F006A1082 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AEFE402582D62F006A1082 /* MainViewController.swift */; };
 		34AEFE442582D62F006A1082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34AEFE422582D62F006A1082 /* Main.storyboard */; };
@@ -68,18 +68,18 @@
 		34304116258C466E009A402A /* SessionGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionGoalViewController.swift; sourceTree = "<group>"; };
 		3430411E258C4E62009A402A /* CustomGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomGoalViewController.swift; sourceTree = "<group>"; };
 		34304123258C51A1009A402A /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		344D2451259BEEAD00C18C43 /* LicensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesViewController.swift; sourceTree = "<group>"; };
 		34594C8D2587F51600FE007D /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		34594C922587F54E00FE007D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		34594C972587F56900FE007D /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		34594C9C2587F7EC00FE007D /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		34594CA12587F7F800FE007D /* SessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 		34594CA62587F80400FE007D /* SessionLengthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionLengthViewController.swift; sourceTree = "<group>"; };
 		3478990225856F9D00CDE277 /* IntroControllers.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IntroControllers.storyboard; sourceTree = "<group>"; };
 		3478990B2585703D00CDE277 /* UIFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFonts.swift; sourceTree = "<group>"; };
-		347899132585721200CDE277 /* Lobster-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lobster-Regular.ttf"; sourceTree = "<group>"; };
-		347899142585721200CDE277 /* SF-Pro-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Bold.otf"; sourceTree = "<group>"; };
-		347899152585721200CDE277 /* SF-Pro-Rounded-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Medium.otf"; sourceTree = "<group>"; };
-		347899162585721300CDE277 /* SF-Pro-Rounded-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Ultralight.otf"; sourceTree = "<group>"; };
+		347899132585721200CDE277 /* Lobster_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lobster_Regular.ttf; sourceTree = "<group>"; };
+		347899142585721200CDE277 /* SF_Pro_Rounded_Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SF_Pro_Rounded_Bold.otf; sourceTree = "<group>"; };
+		347899152585721200CDE277 /* SF_Pro_Rounded_Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SF_Pro_Rounded_Medium.otf; sourceTree = "<group>"; };
+		347899162585721300CDE277 /* SF_Pro_Rounded_Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SF_Pro_Rounded_Ultralight.otf; sourceTree = "<group>"; };
 		34AEFE392582D62F006A1082 /* Social Break.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Break.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34AEFE3C2582D62F006A1082 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34AEFE402582D62F006A1082 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -151,10 +151,10 @@
 		3478990A2585702D00CDE277 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				347899132585721200CDE277 /* Lobster-Regular.ttf */,
-				347899142585721200CDE277 /* SF-Pro-Rounded-Bold.otf */,
-				347899152585721200CDE277 /* SF-Pro-Rounded-Medium.otf */,
-				347899162585721300CDE277 /* SF-Pro-Rounded-Ultralight.otf */,
+				347899132585721200CDE277 /* Lobster_Regular.ttf */,
+				347899142585721200CDE277 /* SF_Pro_Rounded_Bold.otf */,
+				347899152585721200CDE277 /* SF_Pro_Rounded_Medium.otf */,
+				347899162585721300CDE277 /* SF_Pro_Rounded_Ultralight.otf */,
 				3478990B2585703D00CDE277 /* UIFonts.swift */,
 			);
 			path = Fonts;
@@ -191,7 +191,6 @@
 				34AEFE4A2582D630006A1082 /* LaunchScreen.storyboard */,
 				34AEFE3C2582D62F006A1082 /* AppDelegate.swift */,
 				34158C9C258A9A070087DF49 /* PageControllers */,
-				34594C9C2587F7EC00FE007D /* MenuViewController.swift */,
 				34158C98258A99F20087DF49 /* MainControllers */,
 				34EE758F25887E85002D1540 /* SessionViewControllers */,
 				34F501102585BE770093E546 /* IntroControllers */,
@@ -235,6 +234,7 @@
 				34158C93258A98090087DF49 /* UIViewExtensions.swift */,
 				343040FF258BDA11009A402A /* UIDeviceExtensions.swift */,
 				34304123258C51A1009A402A /* StringExtensions.swift */,
+				344D2451259BEEAD00C18C43 /* LicensesViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -370,13 +370,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				347899172585721300CDE277 /* Lobster-Regular.ttf in Resources */,
-				347899192585721300CDE277 /* SF-Pro-Rounded-Medium.otf in Resources */,
+				347899172585721300CDE277 /* Lobster_Regular.ttf in Resources */,
+				347899192585721300CDE277 /* SF_Pro_Rounded_Medium.otf in Resources */,
 				34AEFE4C2582D630006A1082 /* LaunchScreen.storyboard in Resources */,
 				3478990325856F9D00CDE277 /* IntroControllers.storyboard in Resources */,
-				347899182585721300CDE277 /* SF-Pro-Rounded-Bold.otf in Resources */,
+				347899182585721300CDE277 /* SF_Pro_Rounded_Bold.otf in Resources */,
 				34AEFE492582D630006A1082 /* Assets.xcassets in Resources */,
-				3478991A2585721300CDE277 /* SF-Pro-Rounded-Ultralight.otf in Resources */,
+				3478991A2585721300CDE277 /* SF_Pro_Rounded_Ultralight.otf in Resources */,
 				34AEFE442582D62F006A1082 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,9 +412,9 @@
 				34EE7555258863E2002D1540 /* IntroController2Part2.swift in Sources */,
 				34158C9E258A9A380087DF49 /* PageViewController.swift in Sources */,
 				34304100258BDA11009A402A /* UIDeviceExtensions.swift in Sources */,
-				34594C9D2587F7EC00FE007D /* MenuViewController.swift in Sources */,
 				34594CA72587F80400FE007D /* SessionLengthViewController.swift in Sources */,
 				3430411F258C4E62009A402A /* CustomGoalViewController.swift in Sources */,
+				344D2452259BEEAD00C18C43 /* LicensesViewController.swift in Sources */,
 				34EE755025885A5B002D1540 /* IntroController2.swift in Sources */,
 				34F5010C2585BE710093E546 /* IntroController1.swift in Sources */,
 				34594C8E2587F51600FE007D /* StatsViewController.swift in Sources */,

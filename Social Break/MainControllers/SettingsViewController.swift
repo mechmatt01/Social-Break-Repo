@@ -42,16 +42,6 @@ class SettingsViewController: BasePageController, UICollectionViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        /*
-        let center = UNUserNotificationCenter.current()
-        center.getPendingNotificationRequests(completionHandler: { requests in
-            for request in requests {
-                print("Notifications Pending: ", request.identifier)
-                print("Notifications Pending: ", request.content.body)
-            }
-        })
-        */
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -130,7 +120,6 @@ class SettingsViewController: BasePageController, UICollectionViewDataSource, UI
         }
         
         self.notifications?.addTarget(self, action: #selector(changeNotificationPrefrences), for: .touchUpInside)
-        
         
         if UserDefaults.standard.bool(forKey: "notificationsEnabled") == true {
             self.notifications?.isOn = true
@@ -224,50 +213,21 @@ class SettingsViewController: BasePageController, UICollectionViewDataSource, UI
     }
     
     @objc func keyboardWillShow(sender: NSNotification) {
-         self.view.frame.origin.y = -100 // Move view 100 points upward
+        self.view.frame.origin.y = -100 // Move view 100 points upward
     }
-
+    
     @objc func keyboardWillHide(sender: NSNotification) {
-         self.view.frame.origin.y = 0 // Move view to original position
+        self.view.frame.origin.y = 0 // Move view to original position
     }
     
     @objc func setNewTime() {
-        var daysArray = UserDefaults.standard.array(forKey: "daysForReminders") as? [Int] ?? [Int]()
+        UserDefaults.standard.set(self.timeSelector.date, forKey: "timeForReminders")
+        
+        let daysArray = UserDefaults.standard.array(forKey: "daysForReminders") as? [Int] ?? [Int]()
         var daysUUIDArray = UserDefaults.standard.array(forKey: "daysUUIDArray") as? [String] ?? [String]()
         let newUUIDString = UUID().uuidString
         
-        for (index, UUID) in daysUUIDArray.enumerated() {
-            if UUID != "" {
-                let notificationCenter = UNUserNotificationCenter.current()
-                notificationCenter.removePendingNotificationRequests(withIdentifiers: [UUID])
-                daysUUIDArray.remove(at: index)
-                daysUUIDArray.insert("", at: index)
-                UserDefaults.standard.set(daysUUIDArray, forKey: "daysUUIDArray")
-            }
-        }
-        
         for day in daysArray {
-            daysArray.append(day)
-            daysUUIDArray.remove(at: day)
-            daysUUIDArray.insert(newUUIDString, at: day)
-            if day == 0 {
-                self.sunday?.backgroundColor = .blue
-            } else if day == 1 {
-                self.monday?.backgroundColor = .blue
-            } else if day == 2 {
-                self.tuesday?.backgroundColor = .blue
-            } else if day == 3 {
-                self.wednesday?.backgroundColor = .blue
-            } else if day == 4 {
-                self.thursday?.backgroundColor = .blue
-            } else if day == 5 {
-                self.friday?.backgroundColor = .blue
-            } else if day == 6 {
-                self.saturday?.backgroundColor = .blue
-            }
-            UserDefaults.standard.set(daysArray, forKey: "daysForReminders")
-            UserDefaults.standard.set(daysUUIDArray, forKey: "daysUUIDArray")
-            
             let content = UNMutableNotificationContent()
             content.title = "Time for a Break"
             content.body = "Let's get Productive"
@@ -291,6 +251,9 @@ class SettingsViewController: BasePageController, UICollectionViewDataSource, UI
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
             var uuidString = ""
             if daysUUIDArray[day] != "" {
+                let UUIDToRemove = daysUUIDArray[day]
+                let notificationCenter = UNUserNotificationCenter.current()
+                notificationCenter.removePendingNotificationRequests(withIdentifiers: [UUIDToRemove])
                 uuidString = daysUUIDArray[day]
             } else {
                 uuidString = newUUIDString
@@ -411,11 +374,34 @@ class SettingsViewController: BasePageController, UICollectionViewDataSource, UI
         }
     }
     
-    
     @objc func changeNotificationPrefrences() {
         if self.notifications?.isOn == true {
-            UserDefaults.standard.set(false, forKey: "notificationsEnabled")
-            self.notifications?.isOn = false
+            let current = UNUserNotificationCenter.current()
+            current.getNotificationSettings { (settings) in
+                if settings.authorizationStatus == .authorized {
+                    // Authorized
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge, .provisional]) {
+                        (granted, error) in
+                        UNUserNotificationCenter.current().delegate = self
+                        let alertController = UIAlertController(title: "Disable Notifications", message: "Please go to the settings to disable notifications. Then restart the app.", preferredStyle: .alert)
+                        let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+                            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                                return
+                            }
+                            if UIApplication.shared.canOpenURL(settingsUrl) {
+                                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                                })
+                            }
+                        }
+                        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                        alertController.addAction(cancelAction)
+                        alertController.addAction(settingsAction)
+                        DispatchQueue.main.async {
+                            self.present(alertController, animated: true, completion: nil)
+                        }
+                    }
+                }
+            }
         } else {
             let current = UNUserNotificationCenter.current()
             current.getNotificationSettings { (settings) in
@@ -467,6 +453,8 @@ class SettingsViewController: BasePageController, UICollectionViewDataSource, UI
     func textFieldDidEndEditing(_ textField: UITextField) {
         if self.userName.hasText == true && self.userName.text?.isEmpty == false {
             UserDefaults.standard.set("\(self.userName.text ?? "")", forKey: "userDisplayName")
+            let mainVC = MainViewController()
+            mainVC.needUpdate = true
         } else {
             self.userName?.text = UserDefaults.standard.string(forKey: "userDisplayName")
         }
@@ -509,7 +497,6 @@ class SettingsViewController: BasePageController, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        //print("self.images[indexPath.item] shouldSelect: ", self.images[indexPath.item])
         return true
     }
     
@@ -551,13 +538,20 @@ class SettingsViewController: BasePageController, UICollectionViewDataSource, UI
          */
         
         self.UICollectionView.performBatchUpdates({
-            
             let indexSet = IndexSet(integersIn: 0...0)
             self.UICollectionView.reloadSections(indexSet)
         }, completion: nil)
         
-        //self.UICollectionView.reloadData()
-        let pageController = MainPageViewController()
-        pageController.reloadPageController()
+        let parent1 = self.parent
+        if let pageViewController = parent1?.parent as? MainPageViewController {
+            UIView.transition(with: pageViewController.imageLayer, duration: 0.5, options: .transitionCrossDissolve, animations: {
+                pageViewController.imageLayer.image = UIImage(named: "\(UserDefaults.standard.string(forKey: "backgroundImage") ?? "BackgroundImage1")")
+                if UserDefaults.standard.string(forKey: "backgroundImage") ?? "BackgroundImage1" == "BackgroundImage1" {
+                    pageViewController.bgView.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.250)
+                } else {
+                    pageViewController.bgView.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
+                }
+            }, completion: nil)
+        }
     }
 }

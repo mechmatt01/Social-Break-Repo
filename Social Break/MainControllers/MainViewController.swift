@@ -17,8 +17,17 @@ class MainViewController: BasePageController {
     @IBOutlet weak var scrollDownForMoreImage: UIImageView!
     @IBOutlet weak var backgroundView: UIView!
     
+    var needUpdate: Bool = false
+    
     override var bgView: UIView {
         return self.backgroundView
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if needUpdate == true {
+            self.updateUsername()
+        }
     }
     
     override func viewDidLoad() {
@@ -48,6 +57,18 @@ class MainViewController: BasePageController {
             default     : self.introductionLabel?.text = ("Good Night,\n\(userName!) 💤")
         }
     }
+    
+    func updateUsername() {
+        let userName = UserDefaults.standard.string(forKey: "userDisplayName")
+        let hour = Calendar.current.component(.hour, from: Date())
+        
+        switch hour {
+            case 4..<12 : self.introductionLabel?.text = ("Good Morning,\n\(userName!) ☕️")
+            case 12..<17: self.introductionLabel?.text = ("Good Afternoon,\n\(userName!) ☀️")
+            case 17..<22: self.introductionLabel?.text = ("Good Evening,\n\(userName!) 🌙")
+            default     : self.introductionLabel?.text = ("Good Night,\n\(userName!) 💤")
+        }
+    }
 
     @objc func startSession() {
         
@@ -68,7 +89,7 @@ class MainViewController: BasePageController {
             }
         }
         */
-    
+        
         self.performSegue(withIdentifier: "startSession", sender: self)
     }
 }

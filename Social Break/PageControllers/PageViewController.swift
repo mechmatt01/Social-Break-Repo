@@ -11,20 +11,29 @@ class MainPageViewController: UIViewController, UIPageViewControllerDataSource {
     
     private var pageViewController : UIPageViewController!
     let pageControl = UIPageControl.appearance()
+    let imageLayer = UIImageView()
+    let bgView = UIView()
     
     private var storyboardIds : [String] = [StoryboardIds.Main.MainVC.rawValue,
                                             StoryboardIds.Main.StatsVC.rawValue,
-                                            StoryboardIds.Main.SettingsVC.rawValue,
-                                            StoryboardIds.Main.AboutVC.rawValue]
+                                            StoryboardIds.Main.SettingsVC.rawValue]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpPageViewController()
         self.setUpPageControl()
         self.setUpIntroViewControllers()
-        let layer = self.getImage()
-        layer.frame = self.view.frame
-        self.view.insertSubview(layer, at: 0)
+        imageLayer.frame = self.view.frame
+        imageLayer.image = UIImage(named: "\(UserDefaults.standard.string(forKey: "backgroundImage") ?? "BackgroundImage1")")
+        imageLayer.contentMode = .scaleAspectFill
+        bgView.frame = self.view.frame
+        if UserDefaults.standard.string(forKey: "backgroundImage") ?? "BackgroundImage1" == "BackgroundImage1" {
+            bgView.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.250)
+        } else {
+            bgView.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
+        }
+        self.view.insertSubview(imageLayer, at: 0)
+        self.view.insertSubview(bgView, aboveSubview: imageLayer)
         self.addMenuButton()
     }
     
@@ -37,16 +46,6 @@ class MainPageViewController: UIViewController, UIPageViewControllerDataSource {
         self.view.addConstraintsWithFormat(format: "H:|-0-[v0]-0-|", views: pageViewController.view)
         self.view.addConstraintsWithFormat(format: "V:|-0-[v0]-0-|", views: pageViewController.view)
     }
-    
-    /*
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        if !completed { return }
-        DispatchQueue.main.async() {
-            self.pageViewController.dataSource = nil
-            self.pageViewController.dataSource = self
-        }
-    }
-    */
     
     func reloadPageController() {
         DispatchQueue.main.async() {
@@ -63,7 +62,6 @@ class MainPageViewController: UIViewController, UIPageViewControllerDataSource {
         let image: UIImageView = UIImageView()
         image.image = UIImage(named: "\(UserDefaults.standard.string(forKey: "backgroundImage") ?? "BackgroundImage1")")
         image.contentMode = .scaleAspectFill
-        self.view.insertSubview(image, at: 0)
         return image
     }
     
@@ -114,8 +112,6 @@ class MainPageViewController: UIViewController, UIPageViewControllerDataSource {
         let menuIconButton = UIButton()
         menuIconButton.setImage(UIImage(named: "MenuIcon"), for: .normal)
         self.view.addSubview(menuIconButton)
-        //self.view.addConstraintsWithFormat(format: "H:[v0(38)]", views: menuIconButton)
-        //self.view.addConstraintsWithFormat(format: "V:[v0(45)]", views: menuIconButton)
         self.view.addConstraintsWithFormat(format: "H:[v0(20)]", views: menuIconButton)
         self.view.addConstraintsWithFormat(format: "V:[v0(45)]", views: menuIconButton)
         let xConstraint = NSLayoutConstraint(item: menuIconButton, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1.0, constant: 15)
@@ -124,29 +120,10 @@ class MainPageViewController: UIViewController, UIPageViewControllerDataSource {
         self.view.addAndActivateConstraints(constraints: [xConstraint,yConstraint])
         menuIconButton.addTarget(self, action: #selector(showMenu), for: .touchUpInside)
     }
-    
+
     @objc private func showMenu() {
-        let vc1 = Storyboards.main.instantiateViewController(withIdentifier: StoryboardIds.Main.AboutVC.rawValue) as! BasePageController
+        let vc1 = Storyboards.main.instantiateViewController(withIdentifier: "AboutViewController") as! BasePageController
         self.present(vc1, animated: true, completion: nil)
-        //self.pageViewController.setViewControllers([vc1], direction: .forward, animated: true, completion: nil)
-        /*
-        if let menuVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController {
-            let baseIntroViewController: BasePageController = BasePageController()
-            let index = baseIntroViewController.pageIndex
-            
-            menuVC.modalPresentationStyle = .overCurrentContext
-            if index == 0 {
-                menuVC.comingFrom = "mainVC"
-            } else if index == 1 {
-                menuVC.comingFrom = "statsVC"
-            } else if index == 2 {
-                menuVC.comingFrom = "settingsVC"
-            } else if pageControl.currentPage == 3 {
-                menuVC.comingFrom = "aboutVC"
-            }
-            self.present(menuVC, animated: false, completion: nil)
-        }
-         */
     }
     
     private func getViewControllerAt(index: NSInteger) -> BasePageController {
@@ -167,7 +144,6 @@ struct StoryboardIds {
         case MainVC = "MainViewController"
         case StatsVC = "StatsViewController"
         case SettingsVC = "SettingsViewController"
-        case AboutVC = "AboutViewController"
     }
 }
 

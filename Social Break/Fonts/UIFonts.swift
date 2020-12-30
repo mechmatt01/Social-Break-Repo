@@ -17,17 +17,17 @@ extension UIFont {
     
     // SF Pro
     static func SFProRoundedMediumFont(size : CGFloat) -> UIFont {
-        return UIFont(name: "SF-Pro-Rounded-Medium", size: size) ??
+        return UIFont(name: "SFProRounded-Medium", size: size) ??
             UIFont.systemFont(ofSize: size)
     }
     
     static func SFProRoundedBoldFont(size : CGFloat) -> UIFont {
-        return UIFont(name: "SF-Pro-Rounded-Bold", size: size) ??
+        return UIFont(name: "SFProRounded-Bold", size: size) ??
             UIFont.systemFont(ofSize: size)
     }
     
     static func SFProRoundedUltralightFont(size : CGFloat) -> UIFont {
-        return UIFont(name: "SF-Pro-Rounded-Ultralight", size: size) ??
+        return UIFont(name: "SFProRounded-Ultralight", size: size) ??
             UIFont.systemFont(ofSize: size)
     }
 }

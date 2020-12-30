@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="SF-Pro-Rounded-Bold.otf">
+        <array key="SF_Pro_Rounded_Bold.otf">
             <string>SFProRounded-Bold</string>
         </array>
     </customFonts>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3mK-y7-jph">
-                                <rect key="frame" x="20" y="289" width="374" height="81.333333333333314"/>
+                                <rect key="frame" x="20" y="289" width="374" height="79.333333333333314"/>
                                 <string key="text">Hi there!
 What’s your name?</string>
                                 <fontDescription key="fontDescription" name="SFProRounded-Bold" family="SF Pro Rounded" pointSize="34"/>
@@ -34,7 +34,7 @@ What’s your name?</string>
                                 <rect key="frame" x="87" y="63" width="240" height="162"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xwg-h1-cuz">
-                                <rect key="frame" x="30" y="456" width="354" height="55"/>
+                                <rect key="frame" x="30" y="454" width="354" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="YxO-BY-6bv"/>
                                 </constraints>
@@ -97,7 +97,7 @@ What’s your name?</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you like to set up reminders to take breaks?" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3Yq-ec-NcQ">
-                                <rect key="frame" x="20" y="289" width="271" height="122"/>
+                                <rect key="frame" x="20" y="289" width="271" height="119"/>
                                 <fontDescription key="fontDescription" name="SFProRounded-Bold" family="SF Pro Rounded" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

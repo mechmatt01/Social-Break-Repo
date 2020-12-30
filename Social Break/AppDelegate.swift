@@ -36,9 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         current.getNotificationSettings(completionHandler: { (settings) in
             if settings.authorizationStatus == .authorized {
                 // Notification permission was already granted
+                UserDefaults.standard.set(true, forKey: "notificationsEnabled")
                 DispatchQueue.main.async {
                   UIApplication.shared.registerForRemoteNotifications()
                 }
+            } else {
+                UserDefaults.standard.set(false, forKey: "notificationsEnabled")
             }
         })
         return true

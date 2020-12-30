@@ -162,7 +162,6 @@ class sessionViewController: UIViewController {
                 if self.selectedTime == 0 {
                     self.sessionEndUpdateDataFields()
                     timer.invalidate()
-                    // MARK: ToDo Check out declaration of font
                     self.timeRemainingLabel.font = UIFont.SFProRoundedBoldFont(size: 30)
                     self.timeRemainingLabel.numberOfLines = 2
                     self.timeRemainingLabel.text = "Completed at \(DateFormatter.localizedString(from: Date(), dateStyle: .none, timeStyle: .short))"
