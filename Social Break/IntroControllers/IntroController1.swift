@@ -8,15 +8,23 @@
 import Foundation
 import UIKit
 
-class IntroController1: UIViewController, UITextFieldDelegate {
+class IntroController1: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate {
     
+    @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
+    
+    var appVersion: String? {
+        return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    var buildVersionNumber: String? {
+        return Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.resetDefaults()
+        self.addTapGestureRecogniserToView()
         
         self.continueButton?.addTarget(self, action: #selector(continueToNextStep), for: .touchUpInside)
         self.continueButton?.layer.cornerRadius = 15.5
@@ -66,5 +74,35 @@ class IntroController1: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.nameTextField.resignFirstResponder()
         return true
+    }
+    
+    func addTapGestureRecogniserToView() {
+        let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(showAppDetails))
+        tapGestureRecogniser.numberOfTapsRequired = 3
+        tapGestureRecogniser.delegate = self
+        tapGestureRecogniser.delaysTouchesBegan = true
+        tapGestureRecogniser.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGestureRecogniser)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if let touchedView = touch.view , touchedView == self.view {
+            return true
+        }
+        return false
+    }
+    
+    @objc func showAppDetails() {
+        let os = ProcessInfo().operatingSystemVersion
+        let iOSString = String(os.majorVersion) + "." + String(os.minorVersion) + "." + String(os.patchVersion)
+        
+        let appInfo = """
+iOS: \(iOSString)
+Version: \(appVersion ?? "--") (\(buildVersionNumber ?? "--"))
+"""
+        let alertController = UIAlertController(title: "Info", message: "\(appInfo)", preferredStyle: .alert)
+        let continueAction = UIAlertAction(title: "Cool", style: .cancel, handler: nil)
+        alertController.addAction(continueAction)
+        present(alertController, animated: true, completion: nil)
     }
 }

@@ -32,6 +32,18 @@ class LicenseViewController: UIViewController, UITextViewDelegate {
                 copyrightInformation.attributedText = NSAttributedString(attributedString: copyrightText)
                 copyrightInformation.textColor = .white
             }
+        } else if selectedIndex == "unsplash" {
+            sourceName.text = "Unsplash"
+            let copyrightText = NSMutableAttributedString(string:
+            """
+            Background images are from from Unsplash.
+            """)
+            let hyperlinkedText = copyrightText.setAsLink(textToFind: "Unsplash", linkURL: "https://www.unsplash.com")
+            
+            if hyperlinkedText {
+                copyrightInformation.attributedText = NSAttributedString(attributedString: copyrightText)
+                copyrightInformation.textColor = .white
+            }
         } else {
             self.dismiss(animated: true, completion: nil)
             sourceName.text = "No License Selected"

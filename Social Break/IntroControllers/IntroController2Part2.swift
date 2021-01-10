@@ -20,6 +20,8 @@ class IntroController2Part2: UIViewController {
     @IBOutlet weak var sunday: UIButton!
     @IBOutlet weak var timeSelector: UIDatePicker!
     
+    let buttonSelectedColor = UIColor(red: 0.227, green: 0.722, blue: 0.922, alpha: 1.000)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,8 +68,6 @@ class IntroController2Part2: UIViewController {
         self.saturday?.addTarget(self, action: #selector(daySelected(sender:)), for: .touchUpInside)
         self.sunday?.addTarget(self, action: #selector(daySelected(sender:)), for: .touchUpInside)
         
-        
-        
         self.sunday?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
         self.monday?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
         self.tuesday?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
@@ -84,8 +84,7 @@ class IntroController2Part2: UIViewController {
         
         for day in daysArray {
             let content = UNMutableNotificationContent()
-            content.title = "Time for a Break"
-            content.body = "Let's get Productive"
+            content.title = "Time to take a Social Break"
             
             var dateComponents = DateComponents()
             dateComponents.calendar = Calendar.current
@@ -97,11 +96,7 @@ class IntroController2Part2: UIViewController {
             dateComponents.weekday = day + 1 // Day of the week as a number (1 = Sunday)
             dateComponents.hour = hourCurrent // hours
             dateComponents.minute = minuteCurrent // minutes
-            
-            print("weekdayCurrent: ", day)
-            print("hourCurrent: ", hourCurrent)
-            print("minuteCurrent: ", minuteCurrent)
-            
+
             // Create the trigger as a repeating event.
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
             var uuidString = ""
@@ -133,7 +128,6 @@ class IntroController2Part2: UIViewController {
             }
         }
         UserDefaults.standard.set(self.timeSelector.date, forKey: "timeForReminders")
-        print("Time displayed: ", self.timeSelector.date)
         self.performSegue(withIdentifier: "goToStep3", sender: self)
     }
     
@@ -175,19 +169,19 @@ class IntroController2Part2: UIViewController {
             daysUUIDArray.remove(at: sender.tag)
             daysUUIDArray.insert(newUUIDString, at: sender.tag)
             if sender.tag == 0 {
-                self.sunday?.backgroundColor = .blue
+                self.sunday?.backgroundColor = buttonSelectedColor
             } else if sender.tag == 1 {
-                self.monday?.backgroundColor = .blue
+                self.monday?.backgroundColor = buttonSelectedColor
             } else if sender.tag == 2 {
-                self.tuesday?.backgroundColor = .blue
+                self.tuesday?.backgroundColor = buttonSelectedColor
             } else if sender.tag == 3 {
-                self.wednesday?.backgroundColor = .blue
+                self.wednesday?.backgroundColor = buttonSelectedColor
             } else if sender.tag == 4 {
-                self.thursday?.backgroundColor = .blue
+                self.thursday?.backgroundColor = buttonSelectedColor
             } else if sender.tag == 5 {
-                self.friday?.backgroundColor = .blue
+                self.friday?.backgroundColor = buttonSelectedColor
             } else if sender.tag == 6 {
-                self.saturday?.backgroundColor = .blue
+                self.saturday?.backgroundColor = buttonSelectedColor
             }
             UserDefaults.standard.set(daysArray, forKey: "daysForReminders")
             UserDefaults.standard.set(daysUUIDArray, forKey: "daysUUIDArray")

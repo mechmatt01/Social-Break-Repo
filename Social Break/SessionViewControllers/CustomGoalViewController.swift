@@ -35,6 +35,7 @@ class CustomGoalViewController: UIViewController, UIGestureRecognizerDelegate, U
     @objc func continueWithCustomGoal() {
         let sessionVC = self.storyboard?.instantiateViewController(withIdentifier: "sessionViewController") as! sessionViewController
         sessionVC.modalPresentationStyle = .fullScreen
+        sessionVC.sessionStatus = false
         sessionVC.selectedTime = selectedTime
         sessionVC.goalString = self.goalTextField?.text ?? ""
         self.present(sessionVC, animated: false, completion: nil)
@@ -57,7 +58,7 @@ class CustomGoalViewController: UIViewController, UIGestureRecognizerDelegate, U
         return true
     }
     
-    func addTapGestureRecogniserToView(){
+    func addTapGestureRecogniserToView() {
         let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(dismissView))
         tapGestureRecogniser.numberOfTapsRequired = 1
         tapGestureRecogniser.delegate = self

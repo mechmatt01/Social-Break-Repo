@@ -19,6 +19,9 @@ class MainViewController: BasePageController {
     
     var needUpdate: Bool = false
     
+    var sessionGoal: String = ""
+    var sessionLengthRemaining: Double = 0.0
+    
     override var bgView: UIView {
         return self.backgroundView
     }
@@ -30,10 +33,73 @@ class MainViewController: BasePageController {
         }
     }
     
+    func checkSessionStatus() {
+        self.startSessionButton?.isEnabled = false
+        let whiteHalfColor = UIColor(white: 1.0, alpha: 0.5)
+        let whiteFullColor = UIColor(white: 1.0, alpha: 1.0)
+        
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .center
+        
+        let newBreakAttributedString = NSAttributedString(string: "New\nBreak", attributes: [NSAttributedString.Key.foregroundColor: whiteFullColor, NSAttributedString.Key.paragraphStyle: paragraph])
+        let currentBreakAttributedString = NSAttributedString(string: "Current\nBreak", attributes: [NSAttributedString.Key.foregroundColor: whiteFullColor, NSAttributedString.Key.paragraphStyle: paragraph])
+        let attributedString = NSAttributedString(string: "Loading...", attributes: [NSAttributedString.Key.foregroundColor: whiteHalfColor, NSAttributedString.Key.paragraphStyle: paragraph])
+        self.startSessionButton?.setAttributedTitle(attributedString, for: .disabled)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Sessions")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                
+                let isActive = data.value(forKey: "isActive") as! Bool? ?? false
+                
+                let currentDate = Date()
+                let sessionEndTime = data.value(forKey: "sessionEndTime") as! Date
+                
+                let sessionTimeRemaining = sessionEndTime.timeIntervalSince(currentDate)
+                
+                if isActive == true {
+                    if sessionEndTime > currentDate && Double(sessionTimeRemaining) > 0.000 {
+                        self.sessionGoal = data.value(forKey: "sessionGoal") as! String? ?? "nil"
+                        self.sessionLengthRemaining = Double(sessionTimeRemaining)
+                        self.startSessionButton?.setAttributedTitle(currentBreakAttributedString, for: .normal)
+                        self.startSessionButton?.isEnabled = true
+                        self.startSessionButton?.addTarget(self, action: #selector(continueSession), for: .touchUpInside)
+                        return
+                    } else {
+                        data.setValue(false, forKey: "isActive")
+                        do {
+                            try context.save()
+                            self.startSessionButton?.setAttributedTitle(newBreakAttributedString, for: .normal)
+                            self.startSessionButton?.isEnabled = true
+                            self.startSessionButton?.addTarget(self, action: #selector(startSession), for: .touchUpInside)
+                            return
+                        } catch let error as NSError {
+                            print("Error when trying to save updated session info: \(error), \(error.userInfo)")
+                            return
+                        }
+                    }
+                }
+            }
+        } catch let error as NSError {
+            print("Error when trying to fetch sessions: \(error), \(error.userInfo)")
+            return
+        }
+        self.startSessionButton?.setAttributedTitle(newBreakAttributedString, for: .normal)
+        self.startSessionButton?.isEnabled = true
+        self.startSessionButton?.addTarget(self, action: #selector(startSession), for: .touchUpInside)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.startSessionButton?.addTarget(self, action: #selector(startSession), for: .touchUpInside)
+
+        self.checkSessionStatus()
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMMM d"
@@ -68,6 +134,15 @@ class MainViewController: BasePageController {
             case 17..<22: self.introductionLabel?.text = ("Good Evening,\n\(userName!) 🌙")
             default     : self.introductionLabel?.text = ("Good Night,\n\(userName!) 💤")
         }
+    }
+    
+    @objc func continueSession() {
+        let sessionVC = self.storyboard?.instantiateViewController(withIdentifier: "sessionViewController") as! sessionViewController
+        sessionVC.modalPresentationStyle = .fullScreen
+        sessionVC.sessionStatus = true
+        sessionVC.selectedTime = sessionLengthRemaining
+        sessionVC.goalString = sessionGoal
+        self.present(sessionVC, animated: false, completion: nil)
     }
 
     @objc func startSession() {

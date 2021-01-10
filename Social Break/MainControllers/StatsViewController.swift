@@ -109,8 +109,6 @@ class StatsViewController: BasePageController {
                 let startOfToday = Calendar.current.startOfDay(for: Date())
                
                 let sessionDate = data.value(forKey: "sessionDate") as! Date
-            
-                print("startOfToday: ", startOfToday)
                 
                 if Calendar.current.isDayInCurrentWeek(date: sessionDate) ?? false == true {
                     // Occurred This Week

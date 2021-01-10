@@ -29,7 +29,6 @@ class CustomTimeViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func continueWithCustomTime() {
-        print("self.datePicker?.countDownDuration: ", self.datePicker?.countDownDuration ?? 0.0)
         
         if self.datePicker?.countDownDuration ?? 0.0 >= 10800.00 {
             let alertController = UIAlertController(title: "Are You Sure?", message: "This may consume more of your battery by setting a timer for this long.", preferredStyle: .alert)
@@ -51,7 +50,7 @@ class CustomTimeViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    func addTapGestureRecogniserToView(){
+    func addTapGestureRecogniserToView() {
         let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(dismissView))
         tapGestureRecogniser.numberOfTapsRequired = 1
         tapGestureRecogniser.delegate = self

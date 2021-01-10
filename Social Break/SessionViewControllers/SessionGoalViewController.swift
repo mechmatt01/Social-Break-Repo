@@ -23,6 +23,13 @@ class SessionGoalViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var backgroundImageView: UIView!
     @IBOutlet weak var UICollectionView: UICollectionView!
     
+    let columnLayout = ColumnFlowLayout(
+        cellsPerRow: 2,
+        minimumInteritemSpacing: 10,
+        minimumLineSpacing: 10,
+        sectionInset: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
+    )
+    
     let reuseIdentifier = "goalCell"
     
     var cellImages = [UIImage]()
@@ -39,24 +46,21 @@ class SessionGoalViewController: UIViewController, UICollectionViewDataSource, U
             self.backgroundImageView?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
         }
         
-        let image1  = UIImage(named: "GoalWork")
-        let image2  = UIImage(named: "GoalMeditate")
-        let image3  = UIImage(named: "GoalTakeNap")
-        let image4  = UIImage(named: "GoalReadBook")
-        let image5  = UIImage(named: "GoalWorkout")
-        let image6  = UIImage(named: "GoalRelax")
-        let image7  = UIImage(named: "GoalChores")
-        let image8  = UIImage(named: "GoalGoOutside")
-        let image9  = UIImage(named: "GoalMusic")
-        let image10  = UIImage(named: "GoalShop")
-        let image11  = UIImage(named: "GoalShower")
+        let image1  = UIImage(named: "GoalMeditate")
+        let image2  = UIImage(named: "GoalTakeNap")
+        let image3  = UIImage(named: "GoalReadBook")
+        let image4  = UIImage(named: "GoalWorkout")
+        let image5  = UIImage(named: "GoalRelax")
+        let image6  = UIImage(named: "GoalGoOutside")
+        let image7  = UIImage(named: "GoalMusic")
         
-        cellImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11] as! [UIImage]
-        cellLabels = ["Work", "Meditate", "Nap", "Read", "Workout", "Relax", "Chores", "Go Outside", "Listen to Music", "Shop", "Shower"]
+        cellImages = [image1, image2, image3, image4, image5, image6, image7] as! [UIImage]
+        cellLabels = ["Meditate", "Nap", "Read", "Workout", "Relax", "Go Outside", "Listen to Music"]
         
         UICollectionView?.backgroundColor = .clear
         UICollectionView?.allowsMultipleSelection = false
         UICollectionView?.contentInsetAdjustmentBehavior = .always
+        UICollectionView?.collectionViewLayout = columnLayout
         
         self.customGoal?.addTarget(self, action: #selector(setCustomGoal), for: .touchUpInside)
         self.closeButton?.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
@@ -99,6 +103,7 @@ class SessionGoalViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sessionVC = self.storyboard?.instantiateViewController(withIdentifier: "sessionViewController") as! sessionViewController
         sessionVC.modalPresentationStyle = .fullScreen
+        sessionVC.sessionStatus = false
         sessionVC.selectedTime = selectedTime
         sessionVC.goalString = String(self.cellLabels[indexPath.item])
         self.present(sessionVC, animated: false, completion: nil)
