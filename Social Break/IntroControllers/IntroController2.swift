@@ -23,6 +23,7 @@ class IntroController2: UIViewController, UNUserNotificationCenterDelegate {
         self.disableNotifications?.layer.cornerRadius = 15.25
         self.disableNotifications?.layer.masksToBounds = true
         
+        UNUserNotificationCenter.current().delegate = self
         let current = UNUserNotificationCenter.current()
         current.getNotificationSettings { (settings) in
             if settings.authorizationStatus != .authorized {
@@ -41,8 +42,8 @@ class IntroController2: UIViewController, UNUserNotificationCenterDelegate {
                     UIApplication.shared.registerForRemoteNotifications()
                     self.performSegue(withIdentifier: "goToStep2Part2", sender: self)
                 }
-            } else if settings.authorizationStatus == .denied || settings.authorizationStatus == .notDetermined {
-                // Either denied or notDetermined
+            } else if settings.authorizationStatus == .denied {
+                // Notifications denied
                 UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge, .provisional]) {
                     (granted, error) in
                     UNUserNotificationCenter.current().delegate = self
@@ -85,6 +86,7 @@ class IntroController2: UIViewController, UNUserNotificationCenterDelegate {
     }
     
     @objc func continueWithoutNotificationReminders() {
+        UserDefaults.standard.set(false, forKey: "notificationsEnabled")
         UserDefaults.standard.set(["", "", "", "", "", "", ""], forKey: "daysUUIDArray")
         UserDefaults.standard.set([], forKey: "daysForReminders")
         self.performSegue(withIdentifier: "goToStep3", sender: self)

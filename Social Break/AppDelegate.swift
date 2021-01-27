@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -30,7 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             window?.rootViewController = introVC
             window?.makeKeyAndVisible()
         }
-
+        
+        FirebaseApp.configure()
+        
         UNUserNotificationCenter.current().delegate = self
         let current = UNUserNotificationCenter.current()
         current.getNotificationSettings(completionHandler: { (settings) in
@@ -38,12 +41,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 // Notification permission was already granted
                 UserDefaults.standard.set(true, forKey: "notificationsEnabled")
                 DispatchQueue.main.async {
-                  UIApplication.shared.registerForRemoteNotifications()
+                    UIApplication.shared.registerForRemoteNotifications()
                 }
             } else {
                 UserDefaults.standard.set(false, forKey: "notificationsEnabled")
             }
         })
+        
+        /*
+         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+         UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: { (isSuccess, error) in
+         if let error = error {
+         print(error.localizedDescription)
+         }
+         
+         if isSuccess == true {
+         UserDefaults.standard.set("notificationsEnabled", forKey: "toggleNotifications")
+         } else {
+         UserDefaults.standard.set("notificationsNotEnabled", forKey: "toggleNotifications")
+         }
+         })
+         */
         
         return true
     }
@@ -54,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let token = tokenParts.joined()
         print("Device Token: \(token)")
     }
-
+    
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Failed to register remote notifications: \(error)")
     }
@@ -62,9 +80,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         print("Notification info: ", userInfo)
+        // Print full message.
+        print(userInfo)
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        // Print full message.
+        print(userInfo)
         print("Remote Notification Received, message info: ", userInfo)
     }
     

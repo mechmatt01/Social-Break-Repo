@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>767183523874-iu0u38j5pgi6ktui995cgva3a7pfr2pb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.767183523874-iu0u38j5pgi6ktui995cgva3a7pfr2pb</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB2n8XQTLQJzugpWt4rup_kO5aPL2tIp20</string>
+	<key>GCM_SENDER_ID</key>
+	<string>767183523874</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.discover.Social-Break</string>
+	<key>PROJECT_ID</key>
+	<string>social-break-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>social-break-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:767183523874:ios:a438ef5d6742904451ba7b</string>
+</dict>
+</plist>

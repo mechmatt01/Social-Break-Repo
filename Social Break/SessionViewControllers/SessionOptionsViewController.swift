@@ -27,8 +27,6 @@ class SessionOptionsViewController: UIViewController, UIGestureRecognizerDelegat
         
         //self.soundButton?.titleLabel?.textAlignment = .center
         //self.endSessionButton?.titleLabel?.textAlignment = .center
-        
-        
     }
     
     override func viewDidLoad() {

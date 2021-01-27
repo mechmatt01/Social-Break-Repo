@@ -44,6 +44,18 @@ class LicenseViewController: UIViewController, UITextViewDelegate {
                 copyrightInformation.attributedText = NSAttributedString(attributedString: copyrightText)
                 copyrightInformation.textColor = .white
             }
+        } else if selectedIndex == "firebase" {
+            sourceName.text = "Firebase"
+            let copyrightText = NSMutableAttributedString(string:
+            """
+              This app uses Firebase. Firebase is an app development platform with tools to help you build, grow and monetize your app. More information about Firebase can be found at https://firebase.google.com.
+            """)
+            let hyperlinkedText = copyrightText.setAsLink(textToFind: "https://firebase.google.com", linkURL: "https://firebase.google.com")
+            
+            if hyperlinkedText {
+                copyrightInformation.attributedText = NSAttributedString(attributedString: copyrightText)
+                copyrightInformation.textColor = .white
+            }
         } else {
             self.dismiss(animated: true, completion: nil)
             sourceName.text = "No License Selected"

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		34304117258C466E009A402A /* SessionGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34304116258C466E009A402A /* SessionGoalViewController.swift */; };
 		3430411F258C4E62009A402A /* CustomGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3430411E258C4E62009A402A /* CustomGoalViewController.swift */; };
 		34304124258C51A1009A402A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34304123258C51A1009A402A /* StringExtensions.swift */; };
+		3443231925AA9682007A7A10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3443231825AA9682007A7A10 /* GoogleService-Info.plist */; };
 		344D2452259BEEAD00C18C43 /* LicensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344D2451259BEEAD00C18C43 /* LicensesViewController.swift */; };
 		34594C8E2587F51600FE007D /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34594C8D2587F51600FE007D /* StatsViewController.swift */; };
 		34594C932587F54E00FE007D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34594C922587F54E00FE007D /* SettingsViewController.swift */; };
@@ -50,6 +51,7 @@
 		34EE7555258863E2002D1540 /* IntroController2Part2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE7554258863E2002D1540 /* IntroController2Part2.swift */; };
 		34EE758225886BD2002D1540 /* IntroController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE758125886BD2002D1540 /* IntroController3.swift */; };
 		34F5010C2585BE710093E546 /* IntroController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F5010B2585BE710093E546 /* IntroController1.swift */; };
+		DFFF9E0D404E16DEA46C3716 /* Pods_Social_Break.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBAFB13B1337CD9AB3F44F81 /* Pods_Social_Break.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2EE4BCECEC0D58CCFF300A8C /* Pods-Social Break.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social Break.release.xcconfig"; path = "Target Support Files/Pods-Social Break/Pods-Social Break.release.xcconfig"; sourceTree = "<group>"; };
 		34158C93258A98090087DF49 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		34158C9D258A9A380087DF49 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		34158CA5258A9A9A0087DF49 /* BasePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePageController.swift; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 		34304116258C466E009A402A /* SessionGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionGoalViewController.swift; sourceTree = "<group>"; };
 		3430411E258C4E62009A402A /* CustomGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomGoalViewController.swift; sourceTree = "<group>"; };
 		34304123258C51A1009A402A /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		3443231825AA9682007A7A10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		344D2451259BEEAD00C18C43 /* LicensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesViewController.swift; sourceTree = "<group>"; };
 		34594C8D2587F51600FE007D /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		34594C922587F54E00FE007D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 		34EE7554258863E2002D1540 /* IntroController2Part2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroController2Part2.swift; sourceTree = "<group>"; };
 		34EE758125886BD2002D1540 /* IntroController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroController3.swift; sourceTree = "<group>"; };
 		34F5010B2585BE710093E546 /* IntroController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroController1.swift; sourceTree = "<group>"; };
+		9B59C28FF7DDE60198E0B2A6 /* Pods-Social Break.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social Break.debug.xcconfig"; path = "Target Support Files/Pods-Social Break/Pods-Social Break.debug.xcconfig"; sourceTree = "<group>"; };
+		DBAFB13B1337CD9AB3F44F81 /* Pods_Social_Break.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Social_Break.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFFF9E0D404E16DEA46C3716 /* Pods_Social_Break.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +211,7 @@
 				34AEFE602582D630006A1082 /* Social BreakUITests */,
 				34AEFE3A2582D62F006A1082 /* Products */,
 				34AEFE732582D654006A1082 /* Frameworks */,
+				697352E9AD924F3B072A3E00 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -233,6 +241,7 @@
 				3478990A2585702D00CDE277 /* Fonts */,
 				34EE755D258865A6002D1540 /* Extensions */,
 				3486F32025AA4F5300FC4C05 /* Sounds */,
+				3443231825AA9682007A7A10 /* GoogleService-Info.plist */,
 				34AEFE4D2582D630006A1082 /* Info.plist */,
 				34AEFE452582D62F006A1082 /* Social_Break.xcdatamodeld */,
 			);
@@ -261,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				34AEFE742582D654006A1082 /* CloudKit.framework */,
+				DBAFB13B1337CD9AB3F44F81 /* Pods_Social_Break.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -301,6 +311,15 @@
 			path = IntroControllers;
 			sourceTree = "<group>";
 		};
+		697352E9AD924F3B072A3E00 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9B59C28FF7DDE60198E0B2A6 /* Pods-Social Break.debug.xcconfig */,
+				2EE4BCECEC0D58CCFF300A8C /* Pods-Social Break.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -308,17 +327,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34AEFE662582D630006A1082 /* Build configuration list for PBXNativeTarget "Social Break" */;
 			buildPhases = (
+				C04A9D17B0E6D1474664DD03 /* [CP] Check Pods Manifest.lock */,
 				34AEFE352582D62F006A1082 /* Sources */,
 				34AEFE362582D62F006A1082 /* Frameworks */,
 				34AEFE372582D62F006A1082 /* Resources */,
+				8E8A77383C1E8C8A65A56E85 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Social Break";
-			packageProductDependencies = (
-			);
 			productName = "Social Break";
 			productReference = 34AEFE392582D62F006A1082 /* Social Break.app */;
 			productType = "com.apple.product-type.application";
@@ -394,8 +413,6 @@
 				Base,
 			);
 			mainGroup = 34AEFE302582D62F006A1082;
-			packageReferences = (
-			);
 			productRefGroup = 34AEFE3A2582D62F006A1082 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -413,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3486F33C25AA745800FC4C05 /* MountainNatureSound.wav in Resources */,
+				3443231925AA9682007A7A10 /* GoogleService-Info.plist in Resources */,
 				347899172585721300CDE277 /* Lobster_Regular.ttf in Resources */,
 				347899192585721300CDE277 /* SF_Pro_Rounded_Medium.otf in Resources */,
 				34AEFE4C2582D630006A1082 /* LaunchScreen.storyboard in Resources */,
@@ -447,6 +465,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8E8A77383C1E8C8A65A56E85 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Social Break/Pods-Social Break-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Social Break/Pods-Social Break-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Social Break/Pods-Social Break-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C04A9D17B0E6D1474664DD03 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Social Break-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		34AEFE352582D62F006A1082 /* Sources */ = {
@@ -649,12 +709,13 @@
 		};
 		34AEFE672582D630006A1082 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B59C28FF7DDE60198E0B2A6 /* Pods-Social Break.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Social Break/Social Break.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 40;
 				DEVELOPMENT_TEAM = C5J7K4VA5R;
 				INFOPLIST_FILE = "Social Break/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -673,12 +734,13 @@
 		};
 		34AEFE682582D630006A1082 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EE4BCECEC0D58CCFF300A8C /* Pods-Social Break.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Social Break/Social Break.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 40;
 				DEVELOPMENT_TEAM = C5J7K4VA5R;
 				INFOPLIST_FILE = "Social Break/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

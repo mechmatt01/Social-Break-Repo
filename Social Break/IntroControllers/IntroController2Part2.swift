@@ -20,7 +20,7 @@ class IntroController2Part2: UIViewController {
     @IBOutlet weak var sunday: UIButton!
     @IBOutlet weak var timeSelector: UIDatePicker!
     
-    let buttonSelectedColor = UIColor(red: 0.227, green: 0.722, blue: 0.922, alpha: 1.000)
+    let buttonSelectedColor = UIColor.black
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +39,14 @@ class IntroController2Part2: UIViewController {
             self.timeSelector?.preferredDatePickerStyle = .inline
         }
         
-        self.monday?.layer.cornerRadius = 20
-        self.tuesday?.layer.cornerRadius = 20
-        self.wednesday?.layer.cornerRadius = 20
-        self.thursday?.layer.cornerRadius = 20
-        self.friday?.layer.cornerRadius = 20
-        self.saturday?.layer.cornerRadius = 20
-        self.sunday?.layer.cornerRadius = 20
+        
+        self.monday?.layer.cornerRadius = 13
+        self.tuesday?.layer.cornerRadius = 13
+        self.wednesday?.layer.cornerRadius = 13
+        self.thursday?.layer.cornerRadius = 13
+        self.friday?.layer.cornerRadius = 13
+        self.saturday?.layer.cornerRadius = 13
+        self.sunday?.layer.cornerRadius = 13
         self.monday?.layer.masksToBounds = true
         self.tuesday?.layer.masksToBounds = true
         self.wednesday?.layer.masksToBounds = true
@@ -68,13 +69,13 @@ class IntroController2Part2: UIViewController {
         self.saturday?.addTarget(self, action: #selector(daySelected(sender:)), for: .touchUpInside)
         self.sunday?.addTarget(self, action: #selector(daySelected(sender:)), for: .touchUpInside)
         
-        self.sunday?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
-        self.monday?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
-        self.tuesday?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
-        self.wednesday?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
-        self.thursday?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
-        self.friday?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
-        self.saturday?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
+        self.sunday?.backgroundColor = .clear
+        self.monday?.backgroundColor = .clear
+        self.tuesday?.backgroundColor = .clear
+        self.wednesday?.backgroundColor = .clear
+        self.thursday?.backgroundColor = .clear
+        self.friday?.backgroundColor = .clear
+        self.saturday?.backgroundColor = .clear
     }
     
     @objc func continueToNextStep() {
@@ -146,19 +147,19 @@ class IntroController2Part2: UIViewController {
                     daysUUIDArray.insert("", at: index)
                     daysArray.remove(at: index)
                     if sender.tag == 0 {
-                        self.sunday?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
+                        self.sunday?.backgroundColor = .clear
                     } else if sender.tag == 1 {
-                        self.monday?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
+                        self.monday?.backgroundColor = .clear
                     } else if sender.tag == 2 {
-                        self.tuesday?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
+                        self.tuesday?.backgroundColor = .clear
                     } else if sender.tag == 3 {
-                        self.wednesday?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
+                        self.wednesday?.backgroundColor = .clear
                     } else if sender.tag == 4 {
-                        self.thursday?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
+                        self.thursday?.backgroundColor = .clear
                     } else if sender.tag == 5 {
-                        self.friday?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
+                        self.friday?.backgroundColor = .clear
                     } else if sender.tag == 6 {
-                        self.saturday?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
+                        self.saturday?.backgroundColor = .clear
                     }
                     UserDefaults.standard.set(daysArray, forKey: "daysForReminders")
                     UserDefaults.standard.set(daysUUIDArray, forKey: "daysUUIDArray")

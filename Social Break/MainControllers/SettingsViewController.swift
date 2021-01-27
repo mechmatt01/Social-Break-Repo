@@ -130,6 +130,7 @@ class SettingsViewController: BasePageController, UICollectionViewDataSource, UI
                 self.notifications?.isOn = true
             }
         } else {
+            UNUserNotificationCenter.current().delegate = self
             let current = UNUserNotificationCenter.current()
             current.getNotificationSettings { (settings) in
                 if settings.authorizationStatus == .authorized {
@@ -140,8 +141,8 @@ class SettingsViewController: BasePageController, UICollectionViewDataSource, UI
                     if UserDefaults.standard.bool(forKey: "notificationsEnabled") == false {
                         UserDefaults.standard.set(true, forKey: "notificationsEnabled")
                     }
-                } else if settings.authorizationStatus == .denied || settings.authorizationStatus == .notDetermined {
-                    // Either denied or notDetermined
+                } else if settings.authorizationStatus == .denied {
+                    // Notifications denied
                     DispatchQueue.main.async {
                         self.notifications?.isOn = false
                     }

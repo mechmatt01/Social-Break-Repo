@@ -13,6 +13,7 @@ class AboutViewController: BasePageController {
     @IBOutlet weak var contactUs: UIButton!
     @IBOutlet weak var icons8LicenseInfo: UIButton!
     @IBOutlet weak var unsplashLicenseInfo: UIButton!
+    @IBOutlet weak var firebaseLicenseInfo: UIButton!
     @IBOutlet weak var resetAppButton: UIButton!
     @IBOutlet weak var versionInfo: UILabel!
     @IBOutlet weak var backgroundView: UIView!
@@ -34,11 +35,12 @@ class AboutViewController: BasePageController {
         self.resetAppButton?.addTarget(self, action: #selector(resetApp), for: .touchUpInside)
         self.icons8LicenseInfo?.addTarget(self, action: #selector(showIcons8License), for: .touchUpInside)
         self.unsplashLicenseInfo?.addTarget(self, action: #selector(showUnsplashLicenseInfo), for: .touchUpInside)
+        self.firebaseLicenseInfo?.addTarget(self, action: #selector(showFirebaseLicense), for: .touchUpInside)
         self.contactUs?.addTarget(self, action: #selector(contactUsAction), for: .touchUpInside)
         
         self.versionInfo.text =
             """
-            Social Break
+            Social Break © 2021
             Version \(appVersion ?? "--") (\(buildVersionNumber ?? "--"))
             
             Made with ❤️ and Pride in Philadelphia
@@ -54,6 +56,10 @@ class AboutViewController: BasePageController {
         self.performSegue(withIdentifier: "showIcons8LicenseInfo", sender: self)
     }
     
+    @objc func showFirebaseLicense() {
+        self.performSegue(withIdentifier: "showFirebaseLicenseInfo", sender: self)
+    }
+    
     @objc func showUnsplashLicenseInfo() {
         self.performSegue(withIdentifier: "showUnsplashLicenseInfo", sender: self)
     }
@@ -65,6 +71,9 @@ class AboutViewController: BasePageController {
         } else if segue.identifier == "showUnsplashLicenseInfo",
             let nextScene = segue.destination as? LicenseViewController {
              nextScene.selectedIndex = "unsplash"
+        } else if segue.identifier == "showFirebaseLicenseInfo",
+            let nextScene = segue.destination as? LicenseViewController {
+            nextScene.selectedIndex = "firebase"
         }
     }
     
