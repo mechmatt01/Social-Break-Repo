@@ -77,11 +77,49 @@ class AboutViewController: BasePageController {
         }
     }
     
+    func getBackgroundImageSound(backgroundImage: String) -> String {
+        if backgroundImage == "BackgroundImage1" || backgroundImage == "BackgroundImage10" || backgroundImage == "BackgroundImage19" {
+            // Forest Sounds
+            return "ForestSound.wav"
+        } else if backgroundImage == "BackgroundImage12" || backgroundImage == "BackgroundImage15" || backgroundImage == "BackgroundImage16" {
+            // Driving Sounds
+            return "DrivingSound.wav"
+        } else if backgroundImage == "BackgroundImage5" || backgroundImage == "BackgroundImage13" || backgroundImage == "BackgroundImage14" {
+            // City Sounds
+            return "CitySound.wav"
+        } else if backgroundImage == "BackgroundImage4" || backgroundImage == "BackgroundImage8" {
+            // Water Flowing Sounds
+            return "WaterFlowingSound.wav"
+        } else if backgroundImage == "BackgroundImage2" || backgroundImage == "BackgroundImage20" {
+            // Beach Sounds
+            return "BeachSound.wav"
+        } else if backgroundImage == "BackgroundImage3" || backgroundImage == "BackgroundImage6" || backgroundImage == "BackgroundImage7" || backgroundImage == "BackgroundImage9" || backgroundImage == "BackgroundImage17" {
+            // Mountain Nature Sounds
+            return "MountainNatureSound.wav"
+        } else if backgroundImage == "BackgroundImage18" {
+            // Airplane Sounds
+            return "AirplaneSound.wav"
+        } else if backgroundImage == "BackgroundImage21" {
+            // Camp Fire Sounds
+            return "CampFireSound.wav"
+        }
+        return ""
+    }
+    
     @objc func resetApp() {
         let alertController = UIAlertController(title: "Reset App?", message: "Are you sure you would like to reset the app? This will reset everything including your stats.", preferredStyle: .alert)
         let settingsAction = UIAlertAction(title: "Yes", style: .destructive) { (_) -> Void in
             
             DispatchQueue.main.async {
+                let backgroundImage = UserDefaults.standard.string(forKey: "backgroundImage") ?? "BackgroundImage1"
+                
+                let previousSoundName = self.getBackgroundImageSound(backgroundImage: backgroundImage)
+                
+                let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                let previousDestinationUrl = documentsUrl.appendingPathComponent("\(previousSoundName)")
+            
+                try? FileManager.default.removeItem(at: previousDestinationUrl)
+                
                 let notificationCenter = UNUserNotificationCenter.current()
                 notificationCenter.removeAllPendingNotificationRequests()
                 notificationCenter.removeAllDeliveredNotifications()

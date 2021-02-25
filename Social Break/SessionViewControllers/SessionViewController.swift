@@ -362,39 +362,9 @@ class sessionViewController: UIViewController {
     }
     
     @objc func playSoundSession(notification: NSNotification) {
-        let backgroundImage = UserDefaults.standard.string(forKey: "backgroundImage") ?? "BackgroundImage1"
-        var soundName = ""
-        if backgroundImage == "BackgroundImage1" || backgroundImage == "BackgroundImage10" || backgroundImage == "BackgroundImage19" {
-            // Forest Sounds
-            soundName = "ForestSound.wav"
-        } else if backgroundImage == "BackgroundImage12" || backgroundImage == "BackgroundImage15" || backgroundImage == "BackgroundImage16" {
-            // Driving Sounds
-            soundName = "DrivingSound.wav"
-        } else if backgroundImage == "BackgroundImage5" || backgroundImage == "BackgroundImage13" || backgroundImage == "BackgroundImage14" {
-            // City Sounds
-            soundName = "CitySound.wav"
-        } else if backgroundImage == "BackgroundImage4" || backgroundImage == "BackgroundImage8" {
-            // Water Flowing Sounds
-            soundName = "WaterFlowingSound.wav"
-        } else if backgroundImage == "BackgroundImage2" || backgroundImage == "BackgroundImage20" {
-            // Beach Sounds
-            soundName = "BeachSound.wav"
-        } else if backgroundImage == "BackgroundImage3" || backgroundImage == "BackgroundImage6" || backgroundImage == "BackgroundImage7" || backgroundImage == "BackgroundImage9" || backgroundImage == "BackgroundImage17" {
-            // Mountain Nature Sounds
-            soundName = "MountainNatureSound.wav"
-        } else if backgroundImage == "BackgroundImage18" {
-            // Airplane Sounds
-            soundName = "AirplaneSound.wav"
-        } else if backgroundImage == "BackgroundImage21" {
-            // Camp Fire Sounds
-            soundName = "CampFireSound.wav"
-        }
         
-        guard let path = Bundle.main.path(forResource: soundName, ofType: nil) else {
-            print("Cannot find object in path")
-            return
-        }
-        let url = URL(fileURLWithPath: path)
+        let filePath = UserDefaults.standard.string(forKey: "soundPath") ?? ""
+        let url = URL(fileURLWithPath: filePath)
         
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)

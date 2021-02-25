@@ -7,11 +7,14 @@
 
 import Foundation
 import UIKit
+import FirebaseStorage
 
 class IntroController3: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var termsTextView: UITextView!
     @IBOutlet weak var continueButton: UIButton!
+    
+    let storage = Storage.storage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +40,54 @@ class IntroController3: UIViewController, UITextViewDelegate {
     }
     
     @objc func continueToNextStep() {
+        let soundName = "ForestSound.wav"
+        
+        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let destinationUrl = documentsUrl.appendingPathComponent("\(soundName)")
+        
+        let storageRef = storage.reference()
+        let audioRef = storageRef.child("Audio/\(soundName)")
+        
+        let downloadTask = audioRef.write(toFile: destinationUrl) { url, error in
+          if let error = error {
+            // An error occurred
+            print("Error writing file: \(error.localizedDescription)")
+          } else {
+            print("File found")
+          }
+        }
+        
+        let newBackgroundView = UIView()
+        newBackgroundView.layer.backgroundColor = UIColor(white: 0.5, alpha: 0.5).cgColor
+        newBackgroundView.frame = UIScreen.main.bounds
+        view.addSubview(newBackgroundView)
+        let progressIndicator = UIProgressView()
+        progressIndicator.frame = CGRect(x: Int(UIScreen.main.bounds.midX) / 2, y: Int(UIScreen.main.bounds.midY), width: Int(UIScreen.main.bounds.width / 2), height: 10)
+        progressIndicator.progressTintColor = UIColor.white
+        progressIndicator.progressViewStyle = .bar
+        let progressLabel = UILabel()
+        progressLabel.text = "Downloading Sound..."
+        progressLabel.font = UIFont.SFProRoundedBoldFont(size: 18)
+        progressLabel.textColor = UIColor.white
+        progressLabel.frame = CGRect(x: Int(UIScreen.main.bounds.midX) / 2, y: Int(UIScreen.main.bounds.midY), width: Int(UIScreen.main.bounds.width / 2), height: 40)
+        newBackgroundView.addSubview(progressLabel)
+        newBackgroundView.addSubview(progressIndicator)
+        
+        downloadTask.observe(.progress) { snapshot in
+            let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
+                / Double(snapshot.progress!.totalUnitCount)
+            print(percentComplete)
+            progressIndicator.setProgress(Float(percentComplete), animated: false)
+            print(snapshot.progress!.isFinished)
+            if snapshot.progress!.isFinished == true {
+                progressIndicator.removeFromSuperview()
+                progressLabel.removeFromSuperview()
+                newBackgroundView.removeFromSuperview()
+                downloadTask.removeAllObservers()
+            }
+        }
+        
+        UserDefaults.standard.set("\(destinationUrl.path)", forKey: "soundPath")
         UserDefaults.standard.set(true, forKey: "hasCompletedIntro")
         let mainVC = MainPageViewController()
         mainVC.modalPresentationStyle = .fullScreen

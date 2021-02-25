@@ -23,6 +23,7 @@
 		34594C982587F56900FE007D /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34594C972587F56900FE007D /* AboutViewController.swift */; };
 		34594CA22587F7F800FE007D /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34594CA12587F7F800FE007D /* SessionViewController.swift */; };
 		34594CA72587F80400FE007D /* SessionLengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34594CA62587F80400FE007D /* SessionLengthViewController.swift */; };
+		3459A51625CA115700E1D613 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AEFE742582D654006A1082 /* CloudKit.framework */; };
 		3478990325856F9D00CDE277 /* IntroControllers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3478990225856F9D00CDE277 /* IntroControllers.storyboard */; };
 		3478990C2585703D00CDE277 /* UIFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478990B2585703D00CDE277 /* UIFonts.swift */; };
 		347899172585721300CDE277 /* Lobster_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 347899132585721200CDE277 /* Lobster_Regular.ttf */; };
@@ -30,14 +31,6 @@
 		347899192585721300CDE277 /* SF_Pro_Rounded_Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 347899152585721200CDE277 /* SF_Pro_Rounded_Medium.otf */; };
 		3478991A2585721300CDE277 /* SF_Pro_Rounded_Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 347899162585721300CDE277 /* SF_Pro_Rounded_Ultralight.otf */; };
 		3486F32C25AA587A00FC4C05 /* Completed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3486F32B25AA587A00FC4C05 /* Completed.mp3 */; };
-		3486F33B25AA745800FC4C05 /* BeachSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3486F33325AA744F00FC4C05 /* BeachSound.wav */; };
-		3486F33C25AA745800FC4C05 /* MountainNatureSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3486F33425AA745000FC4C05 /* MountainNatureSound.wav */; };
-		3486F33D25AA745800FC4C05 /* AirplaneSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3486F33525AA745200FC4C05 /* AirplaneSound.wav */; };
-		3486F33E25AA745800FC4C05 /* ForestSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3486F33625AA745300FC4C05 /* ForestSound.wav */; };
-		3486F33F25AA745800FC4C05 /* CitySound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3486F33725AA745400FC4C05 /* CitySound.wav */; };
-		3486F34025AA745800FC4C05 /* DrivingSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3486F33825AA745600FC4C05 /* DrivingSound.wav */; };
-		3486F34125AA745800FC4C05 /* WaterFlowingSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3486F33925AA745700FC4C05 /* WaterFlowingSound.wav */; };
-		3486F34225AA745800FC4C05 /* CampFireSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3486F33A25AA745800FC4C05 /* CampFireSound.wav */; };
 		348AE08125A02A8E00368F84 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348AE08025A02A8E00368F84 /* FlowLayout.swift */; };
 		34AEFE3D2582D62F006A1082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AEFE3C2582D62F006A1082 /* AppDelegate.swift */; };
 		34AEFE412582D62F006A1082 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AEFE402582D62F006A1082 /* MainViewController.swift */; };
@@ -96,14 +89,6 @@
 		347899152585721200CDE277 /* SF_Pro_Rounded_Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SF_Pro_Rounded_Medium.otf; sourceTree = "<group>"; };
 		347899162585721300CDE277 /* SF_Pro_Rounded_Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SF_Pro_Rounded_Ultralight.otf; sourceTree = "<group>"; };
 		3486F32B25AA587A00FC4C05 /* Completed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Completed.mp3; sourceTree = "<group>"; };
-		3486F33325AA744F00FC4C05 /* BeachSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BeachSound.wav; sourceTree = "<group>"; };
-		3486F33425AA745000FC4C05 /* MountainNatureSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = MountainNatureSound.wav; sourceTree = "<group>"; };
-		3486F33525AA745200FC4C05 /* AirplaneSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = AirplaneSound.wav; sourceTree = "<group>"; };
-		3486F33625AA745300FC4C05 /* ForestSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ForestSound.wav; sourceTree = "<group>"; };
-		3486F33725AA745400FC4C05 /* CitySound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CitySound.wav; sourceTree = "<group>"; };
-		3486F33825AA745600FC4C05 /* DrivingSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = DrivingSound.wav; sourceTree = "<group>"; };
-		3486F33925AA745700FC4C05 /* WaterFlowingSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = WaterFlowingSound.wav; sourceTree = "<group>"; };
-		3486F33A25AA745800FC4C05 /* CampFireSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CampFireSound.wav; sourceTree = "<group>"; };
 		348AE08025A02A8E00368F84 /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 		34AEFE392582D62F006A1082 /* Social Break.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Break.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34AEFE3C2582D62F006A1082 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +120,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFFF9E0D404E16DEA46C3716 /* Pods_Social_Break.framework in Frameworks */,
+				3459A51625CA115700E1D613 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,14 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				3486F32B25AA587A00FC4C05 /* Completed.mp3 */,
-				3486F33525AA745200FC4C05 /* AirplaneSound.wav */,
-				3486F33325AA744F00FC4C05 /* BeachSound.wav */,
-				3486F33A25AA745800FC4C05 /* CampFireSound.wav */,
-				3486F33725AA745400FC4C05 /* CitySound.wav */,
-				3486F33825AA745600FC4C05 /* DrivingSound.wav */,
-				3486F33625AA745300FC4C05 /* ForestSound.wav */,
-				3486F33425AA745000FC4C05 /* MountainNatureSound.wav */,
-				3486F33925AA745700FC4C05 /* WaterFlowingSound.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -429,21 +407,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3486F33C25AA745800FC4C05 /* MountainNatureSound.wav in Resources */,
 				3443231925AA9682007A7A10 /* GoogleService-Info.plist in Resources */,
 				347899172585721300CDE277 /* Lobster_Regular.ttf in Resources */,
 				347899192585721300CDE277 /* SF_Pro_Rounded_Medium.otf in Resources */,
 				34AEFE4C2582D630006A1082 /* LaunchScreen.storyboard in Resources */,
-				3486F33E25AA745800FC4C05 /* ForestSound.wav in Resources */,
-				3486F34025AA745800FC4C05 /* DrivingSound.wav in Resources */,
-				3486F33D25AA745800FC4C05 /* AirplaneSound.wav in Resources */,
 				3478990325856F9D00CDE277 /* IntroControllers.storyboard in Resources */,
 				347899182585721300CDE277 /* SF_Pro_Rounded_Bold.otf in Resources */,
-				3486F33B25AA745800FC4C05 /* BeachSound.wav in Resources */,
 				34AEFE492582D630006A1082 /* Assets.xcassets in Resources */,
-				3486F33F25AA745800FC4C05 /* CitySound.wav in Resources */,
-				3486F34225AA745800FC4C05 /* CampFireSound.wav in Resources */,
-				3486F34125AA745800FC4C05 /* WaterFlowingSound.wav in Resources */,
 				3486F32C25AA587A00FC4C05 /* Completed.mp3 in Resources */,
 				3478991A2585721300CDE277 /* SF_Pro_Rounded_Ultralight.otf in Resources */,
 				34AEFE442582D62F006A1082 /* Main.storyboard in Resources */,
@@ -715,7 +685,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Social Break/Social Break.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 44;
 				DEVELOPMENT_TEAM = C5J7K4VA5R;
 				INFOPLIST_FILE = "Social Break/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -740,7 +710,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Social Break/Social Break.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 44;
 				DEVELOPMENT_TEAM = C5J7K4VA5R;
 				INFOPLIST_FILE = "Social Break/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

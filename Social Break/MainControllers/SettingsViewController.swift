@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class backgroundImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var selectedIcon: UIImageView!
@@ -38,6 +39,8 @@ class SettingsViewController: BasePageController, UICollectionViewDataSource, UI
     var images = [UIImage]()
     var imageIndex = [Int]()
     let screenType = "\(UIDevice.current.screenType)"
+    let storage = Storage.storage()
+    var backgroundImageSoundString = ""
     
     override var bgView: UIView {
         return self.backgroundView
@@ -505,12 +508,103 @@ class SettingsViewController: BasePageController, UICollectionViewDataSource, UI
         return true
     }
     
+    func getBackgroundImageSound(backgroundImage: String) -> String {
+        if backgroundImage == "BackgroundImage1" || backgroundImage == "BackgroundImage10" || backgroundImage == "BackgroundImage19" {
+            // Forest Sounds
+            return "ForestSound.wav"
+        } else if backgroundImage == "BackgroundImage12" || backgroundImage == "BackgroundImage15" || backgroundImage == "BackgroundImage16" {
+            // Driving Sounds
+            return "DrivingSound.wav"
+        } else if backgroundImage == "BackgroundImage5" || backgroundImage == "BackgroundImage13" || backgroundImage == "BackgroundImage14" {
+            // City Sounds
+            return "CitySound.wav"
+        } else if backgroundImage == "BackgroundImage4" || backgroundImage == "BackgroundImage8" {
+            // Water Flowing Sounds
+            return "WaterFlowingSound.wav"
+        } else if backgroundImage == "BackgroundImage2" || backgroundImage == "BackgroundImage20" {
+            // Beach Sounds
+            return "BeachSound.wav"
+        } else if backgroundImage == "BackgroundImage3" || backgroundImage == "BackgroundImage6" || backgroundImage == "BackgroundImage7" || backgroundImage == "BackgroundImage9" || backgroundImage == "BackgroundImage17" {
+            // Mountain Nature Sounds
+            return "MountainNatureSound.wav"
+        } else if backgroundImage == "BackgroundImage18" {
+            // Airplane Sounds
+            return "AirplaneSound.wav"
+        } else if backgroundImage == "BackgroundImage21" {
+            // Camp Fire Sounds
+            return "CampFireSound.wav"
+        }
+        return ""
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("self.images[indexPath.item] didSelect: ", self.images[indexPath.item])
         print("self.images[indexPath.row] didSelect: \(self.imageIndex[indexPath.row])")
         
         if UIImage(named: "BackgroundImage\(imageIndex[indexPath.row])") != nil {
+            let backgroundImage = UserDefaults.standard.string(forKey: "backgroundImage") ?? "BackgroundImage1"
+            
+            let previousSoundName = getBackgroundImageSound(backgroundImage: backgroundImage)
+            let newSoundName = getBackgroundImageSound(backgroundImage: "BackgroundImage\(imageIndex[indexPath.row])")
+            print("previousSoundName: \(previousSoundName)")
+            print("newSoundName: \(newSoundName)")
+            
+            let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let previousDestinationUrl = documentsUrl.appendingPathComponent("\(previousSoundName)")
+        
+            try? FileManager.default.removeItem(at: previousDestinationUrl)
+            
+            let storageRef = storage.reference()
+            // Create a reference to the file you want to download
+            let audioRef = storageRef.child("Audio/\(newSoundName)")
+            
+            let newDestinationUrl = documentsUrl.appendingPathComponent("\(newSoundName)")
+            print("documentsUrl Path: \(documentsUrl.path)")
+            print("newDestinationUrl Path: \(newDestinationUrl.path)")
+            print("previousDestinationUrl Path: \(previousDestinationUrl.path)")
+            // Download to the local filesystem
+            let downloadTask = audioRef.write(toFile: newDestinationUrl) { url, error in
+              if let error = error {
+                // Uh-oh, an error occurred!
+                print("Error writing file: \(error.localizedDescription)")
+              } else {
+                print("File found")
+                // Local file URL for "images/island.jpg" is returned
+              }
+            }
+            
+            let newBackgroundView = UIView()
+            newBackgroundView.layer.backgroundColor = UIColor(white: 0.5, alpha: 0.5).cgColor
+            newBackgroundView.frame = UIScreen.main.bounds
+            view.addSubview(newBackgroundView)
+            let progressIndicator = UIProgressView()
+            progressIndicator.frame = CGRect(x: Int(UIScreen.main.bounds.midX) / 2, y: Int(UIScreen.main.bounds.midY), width: Int(UIScreen.main.bounds.width / 2), height: 10)
+            progressIndicator.progressTintColor = UIColor.white
+            progressIndicator.progressViewStyle = .bar
+            let progressLabel = UILabel()
+            progressLabel.text = "Downloading Sound..."
+            progressLabel.font = UIFont.SFProRoundedBoldFont(size: 18)
+            progressLabel.textColor = UIColor.white
+            progressLabel.frame = CGRect(x: Int(UIScreen.main.bounds.midX) / 2, y: Int(UIScreen.main.bounds.midY), width: Int(UIScreen.main.bounds.width / 2), height: 40)
+            newBackgroundView.addSubview(progressLabel)
+            newBackgroundView.addSubview(progressIndicator)
+            
+            downloadTask.observe(.progress) { snapshot in
+                let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
+                    / Double(snapshot.progress!.totalUnitCount)
+                print(percentComplete)
+                progressIndicator.setProgress(Float(percentComplete), animated: false)
+                print(snapshot.progress!.isFinished)
+                if snapshot.progress!.isFinished == true {
+                    progressIndicator.removeFromSuperview()
+                    progressLabel.removeFromSuperview()
+                    newBackgroundView.removeFromSuperview()
+                    downloadTask.removeAllObservers()
+                }
+            }
+
             UserDefaults.standard.set("BackgroundImage\(imageIndex[indexPath.row])", forKey: "backgroundImage")
+            UserDefaults.standard.set("\(newDestinationUrl.path)", forKey: "soundPath")
             
             for (index, image) in images.enumerated() {
                 if image == UIImage(named: "BackgroundImage\(imageIndex[indexPath.row])") {

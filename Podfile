@@ -6,5 +6,6 @@ target 'Social Break' do
   use_frameworks!
 
   pod 'Firebase/Analytics'
+  pod 'Firebase/Storage'
 
 end
