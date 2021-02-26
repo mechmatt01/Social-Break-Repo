@@ -190,10 +190,8 @@ class sessionViewController: UIViewController {
             
             let secondsInt = Int(self.selectedTime)
             
-            let dateCurrentFormatter = DateFormatter()
-            dateCurrentFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-            dateCurrentFormatter.timeStyle = .none
-            dateCurrentFormatter.locale = Locale.current
+            // does this lead to anything?
+            let dateCurrentFormatter = DateModel().dateFormatter(format: "yyyy-MM-dd'T'HH:mm:ssZ")
             
             let endTimeOfSession = Calendar.current.date(byAdding: .second, value: secondsInt, to: Date())!
             self.endTime = endTimeOfSession
@@ -212,10 +210,8 @@ class sessionViewController: UIViewController {
                 print("Error when trying to save new session: \(error), \(error.userInfo)")
             }
             
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "h:m a"
-            dateFormatter.timeStyle = .none
-            dateFormatter.locale = Locale.current
+            // does this lead to anything?
+            let dateFormatter = DateModel().dateFormatter(format: "h:m a")
             
             let content = UNMutableNotificationContent()
             content.title = "\(self.goalString) Break Ended"
@@ -278,10 +274,8 @@ class sessionViewController: UIViewController {
             
             let secondsInt = Int(self.selectedTime)
             
-            let dateCurrentFormatter = DateFormatter()
-            dateCurrentFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-            dateCurrentFormatter.timeStyle = .none
-            dateCurrentFormatter.locale = Locale.current
+            // refactored, but it seems like dateCurrentFormatter is not used anywhere else.
+            let dateCurrentFormatter = DateModel().dateFormatter(format: "yyyy-MM-dd'T'HH:mm:ssZ")
             
             let endTimeOfSession = Calendar.current.date(byAdding: .second, value: secondsInt, to: Date())!
             self.endTime = endTimeOfSession
@@ -300,10 +294,7 @@ class sessionViewController: UIViewController {
                 print("Error when trying to save new session: \(error), \(error.userInfo)")
             }
             
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "h:m a"
-            dateFormatter.timeStyle = .none
-            dateFormatter.locale = Locale.current
+            let dateFormatter = DateModel().dateFormatter(format: "h:m a")
             print(dateFormatter.string(from: endTimeOfSession))
             
             let content = UNMutableNotificationContent()
@@ -562,4 +553,5 @@ class sessionViewController: UIViewController {
             print("Error when trying to fetch sessions: \(error), \(error.userInfo)")
         }
     }
+
 }

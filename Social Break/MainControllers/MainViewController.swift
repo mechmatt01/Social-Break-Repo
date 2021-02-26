@@ -101,8 +101,7 @@ class MainViewController: BasePageController {
 
         self.checkSessionStatus()
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMMM d"
+        let dateFormatter = DateModel().dateFormatter(format: "EEEE, MMMM d")
         let mdy = dateFormatter.string(from: Date())
         self.dateLabel?.text = mdy
         

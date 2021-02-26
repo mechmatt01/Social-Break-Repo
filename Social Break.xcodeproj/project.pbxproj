@@ -44,6 +44,7 @@
 		34EE7555258863E2002D1540 /* IntroController2Part2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE7554258863E2002D1540 /* IntroController2Part2.swift */; };
 		34EE758225886BD2002D1540 /* IntroController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE758125886BD2002D1540 /* IntroController3.swift */; };
 		34F5010C2585BE710093E546 /* IntroController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F5010B2585BE710093E546 /* IntroController1.swift */; };
+		9095DC9425E8D4BA002E4BE8 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095DC9325E8D4BA002E4BE8 /* DateModel.swift */; };
 		DFFF9E0D404E16DEA46C3716 /* Pods_Social_Break.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBAFB13B1337CD9AB3F44F81 /* Pods_Social_Break.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		34EE7554258863E2002D1540 /* IntroController2Part2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroController2Part2.swift; sourceTree = "<group>"; };
 		34EE758125886BD2002D1540 /* IntroController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroController3.swift; sourceTree = "<group>"; };
 		34F5010B2585BE710093E546 /* IntroController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroController1.swift; sourceTree = "<group>"; };
+		9095DC9325E8D4BA002E4BE8 /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		9B59C28FF7DDE60198E0B2A6 /* Pods-Social Break.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social Break.debug.xcconfig"; path = "Target Support Files/Pods-Social Break/Pods-Social Break.debug.xcconfig"; sourceTree = "<group>"; };
 		DBAFB13B1337CD9AB3F44F81 /* Pods_Social_Break.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Social_Break.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -212,6 +214,7 @@
 				3478990225856F9D00CDE277 /* IntroControllers.storyboard */,
 				34AEFE4A2582D630006A1082 /* LaunchScreen.storyboard */,
 				34AEFE3C2582D62F006A1082 /* AppDelegate.swift */,
+				9095DC9225E8D48B002E4BE8 /* Models */,
 				34158C9C258A9A070087DF49 /* PageControllers */,
 				34158C98258A99F20087DF49 /* MainControllers */,
 				34EE758F25887E85002D1540 /* SessionViewControllers */,
@@ -296,6 +299,14 @@
 				2EE4BCECEC0D58CCFF300A8C /* Pods-Social Break.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9095DC9225E8D48B002E4BE8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9095DC9325E8D4BA002E4BE8 /* DateModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -503,6 +514,7 @@
 				34304117258C466E009A402A /* SessionGoalViewController.swift in Sources */,
 				34158C94258A98090087DF49 /* UIViewExtensions.swift in Sources */,
 				34158CEA258AA4250087DF49 /* CustomTimeViewController.swift in Sources */,
+				9095DC9425E8D4BA002E4BE8 /* DateModel.swift in Sources */,
 				34594C982587F56900FE007D /* AboutViewController.swift in Sources */,
 				3415EC7225A8EFCF0070D43C /* SessionOptionsViewController.swift in Sources */,
 				34AEFE3D2582D62F006A1082 /* AppDelegate.swift in Sources */,
