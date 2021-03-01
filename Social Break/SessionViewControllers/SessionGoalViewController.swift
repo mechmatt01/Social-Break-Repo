@@ -32,10 +32,23 @@ class SessionGoalViewController: UIViewController, UICollectionViewDataSource, U
     
     let reuseIdentifier = "goalCell"
     
-    var cellImages = [UIImage]()
+    
     var cellLabels = [String]()
     
     var selectedTime: Double = 0.0
+    
+    // Reduced redundant code dna created image array
+    // Tested in app 
+    let cellImages = [
+        UIImage(named: "GoalMeditate"),
+        UIImage(named: "GoalTakeNap"),
+        UIImage(named: "GoalTakeNap"),
+        UIImage(named: "GoalReadBook"),
+        UIImage(named: "GoalWorkout"),
+        UIImage(named: "GoalRelax"),
+        UIImage(named: "GoalGoOutside"),
+        UIImage(named: "GoalMusic")
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,15 +59,6 @@ class SessionGoalViewController: UIViewController, UICollectionViewDataSource, U
             self.backgroundImageView?.backgroundColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.500)
         }
         
-        let image1  = UIImage(named: "GoalMeditate")
-        let image2  = UIImage(named: "GoalTakeNap")
-        let image3  = UIImage(named: "GoalReadBook")
-        let image4  = UIImage(named: "GoalWorkout")
-        let image5  = UIImage(named: "GoalRelax")
-        let image6  = UIImage(named: "GoalGoOutside")
-        let image7  = UIImage(named: "GoalMusic")
-        
-        cellImages = [image1, image2, image3, image4, image5, image6, image7] as! [UIImage]
         cellLabels = ["Meditate", "Nap", "Read", "Workout", "Relax", "Go Outside", "Listen to Music"]
         
         UICollectionView?.backgroundColor = .clear

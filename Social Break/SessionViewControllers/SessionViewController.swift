@@ -56,7 +56,7 @@ class sessionViewController: UIViewController {
         
         self.goal?.text = goalString
         
-        self.selectedTime = self.selectedTime + 1.0
+        self.selectedTime += 1
         
         self.startButton?.layer.cornerRadius = 62.5
         self.startButton?.layer.masksToBounds = true
@@ -553,5 +553,4 @@ class sessionViewController: UIViewController {
             print("Error when trying to fetch sessions: \(error), \(error.userInfo)")
         }
     }
-
 }

@@ -69,7 +69,7 @@
 Break</string>
                                             <attributes>
                                                 <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <font key="NSFont" size="39" name="Lobster-Regular"/>
+                                                <font key="NSFont" metaFont="system" size="39"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -446,7 +446,7 @@ Break</string>
                                 <state key="normal" image="MenuOptionsSessionButton"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ran-PS-Ieq">
-                                <rect key="frame" x="54" y="278.66666666666669" width="306" height="26.333333333333314"/>
+                                <rect key="frame" x="54" y="279.33333333333331" width="306" height="25.666666666666686"/>
                                 <fontDescription key="fontDescription" name="SFProRounded-Bold" family="SF Pro Rounded" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -533,7 +533,7 @@ Break</string>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vP8-Rz-2SP">
-                                <rect key="frame" x="20" y="385" width="78" height="34"/>
+                                <rect key="frame" x="20" y="385" width="76" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="VXP-pr-IOT"/>
                                 </constraints>
@@ -543,7 +543,7 @@ Break</string>
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version Info" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZg-Gb-4wM">
-                                <rect key="frame" x="62" y="823.66666666666663" width="290" height="20.333333333333371"/>
+                                <rect key="frame" x="62" y="824" width="290" height="20"/>
                                 <fontDescription key="fontDescription" name="SFProRounded-Ultralight" family="SF Pro Rounded" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -556,7 +556,7 @@ Break</string>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64v-p0-aY4">
-                                <rect key="frame" x="162" y="755.66666666666663" width="90" height="46"/>
+                                <rect key="frame" x="162" y="756" width="90" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="p79-Pr-YWh"/>
                                 </constraints>
@@ -576,7 +576,7 @@ Break</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7S3-kd-zpK">
-                                <rect key="frame" x="20" y="142" width="147" height="66"/>
+                                <rect key="frame" x="20" y="142" width="145.66666666666666" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="Ntv-dh-qjn"/>
                                 </constraints>
@@ -587,7 +587,7 @@ Have feedback?</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGl-xF-3QM">
-                                <rect key="frame" x="20" y="208" width="105" height="36"/>
+                                <rect key="frame" x="20" y="208" width="104" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Iur-eN-qmE"/>
                                 </constraints>
@@ -597,7 +597,7 @@ Have feedback?</string>
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Licenses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPx-1b-gQ2">
-                                <rect key="frame" x="20" y="300" width="77" height="31"/>
+                                <rect key="frame" x="20" y="300" width="75" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="e2D-e7-jes"/>
                                 </constraints>
@@ -606,7 +606,7 @@ Have feedback?</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibf-WE-nZo">
-                                <rect key="frame" x="20" y="336" width="56" height="34"/>
+                                <rect key="frame" x="20" y="336" width="54" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="NwY-tf-d9L"/>
                                 </constraints>
