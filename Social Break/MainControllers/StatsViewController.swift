@@ -52,6 +52,8 @@ class StatsViewController: BasePageController {
         //self.getUpdatedStatsData()
     }
     
+    //MARK: - Stats Update
+    
     func getUpdatedStatsData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
@@ -148,6 +150,8 @@ class StatsViewController: BasePageController {
         }
     }
     
+    //MARK: - Time Data
+    
     func setTimeData(totalTime: Double) -> String {
         
         var timeString = ""
@@ -171,6 +175,8 @@ class StatsViewController: BasePageController {
         
         return timeString
     }
+    
+    //MARK: - Gesture Function
     
     @objc func swipedScreenDown(swipeGesture: UISwipeGestureRecognizer) {
         self.performSegue(withIdentifier: "swipeDownToMain", sender: self)
